@@ -706,12 +706,14 @@ img {
       }
 
       .contact_section {
-
-         max-height: 100vh;
+         max-height: 1300vh;
+         min-height: 120vh;
+         padding: 0;
          height: 100vh;
          @extend %flex-center;
          flex-direction: column;
          position: relative;
+
 
          &::before {
             content: "";

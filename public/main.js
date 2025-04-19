@@ -41,7 +41,7 @@ window.addEventListener('scroll', () => {
       portfolio.addClass('active');
    }
    
-   if (current_scroll >= contact_section) {
+   if (current_scroll >= contact_scroll) {
       sidebar_btns.removeClass('active');
       bullets.removeClass('active');
       contact.addClass('active');
@@ -86,6 +86,14 @@ portfolio.on('click', e => {
    })
 });
 
+contact.on('click', e => {
+   e.stopPropagation();
+   scrollTo({
+      left: contact_section.offset().left,
+      top: contact_section.offset().top,
+      behavior: "smooth"
+   })
+});
 
 bar.on('click', () => {
    sidebar.toggleClass('show');
