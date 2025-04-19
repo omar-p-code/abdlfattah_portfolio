@@ -7,6 +7,7 @@ $main_color: #111827;
 $secondary_color: #9CA3AF;
 $pro_color: #10B981;
 $bar_transX: 25vw;
+$animation_duration: .5s;
 
 
 * {
@@ -17,7 +18,7 @@ $bar_transX: 25vw;
 }
 
 @mixin shadow ($x, $y, $b, $c) {
-   transition: .5s;
+   transition: $animation_duration;
 
    &:hover,
    &.active {
@@ -132,7 +133,7 @@ img {
    top: 30%;
    font-size: 1.3rem;
    cursor: pointer;
-   transition: .5s;
+   transition: $animation_duration;
 
 
    &.show {
@@ -156,7 +157,7 @@ img {
    z-index: 999;
    gap: 20%;
    width: $bar_transX;
-   transition: .5s;
+   transition: $animation_duration;
    transform: translateX(-103%);
 
    @media (max-width: 668px) {
@@ -172,7 +173,7 @@ img {
       width: 100%;
       height: 30vw;
       position: relative;
-      transition: .5s;
+      transition: $animation_duration;
       overflow: hidden;
       position: relative;
 
@@ -198,14 +199,14 @@ img {
       text-align: center;
       align-items: center;
       /* gap: 20%; */
-      transition: .5s;
+      transition: $animation_duration;
       padding-bottom: 10%;
 
       li {
          font-weight: 600;
          color: $main_color;
          cursor: pointer;
-         transition: .5s;
+         transition: $animation_duration;
          filter: drop-shadow(2px 1px 2px $secondary_color);
          padding: 5px;
          font-size: 1.2rem;
@@ -255,7 +256,7 @@ img {
       }
 
       h1 {
-         transition: .5s;
+         transition: $animation_duration;
          font-size: 2em;
          color: #FFF;
          // text-shadow: 2px 2px 2px $main_color;
@@ -269,7 +270,7 @@ img {
          font-size: 1.5em;
          color: #FFF;
          font-weight: 500;
-         transition: .5s;
+         transition: $animation_duration;
          cursor: default;
 
          &:hover {
@@ -333,7 +334,7 @@ img {
    transform: translateY(-50%);
    z-index: 1000;
    opacity: .3;
-   transition: .5s;
+   transition: $animation_duration;
 
    &:hover {
       opacity: 1;
@@ -354,7 +355,7 @@ img {
          font-size: 1.1rem;
          color: $main_color;
          font-weight: 500;
-         transition: .5s;
+         transition: $animation_duration;
          cursor: pointer;
 
          &:hover {
@@ -402,7 +403,7 @@ img {
             width: fit-content;
             position: relative;
             margin-bottom: 5%;
-            transition: .5s;
+            transition: $animation_duration;
 
             &::after,
             &::before {
@@ -419,24 +420,24 @@ img {
 
             &:hover {
                &::after {
-                  animation: title-l 1s linear both;
+                  animation: title-l $animation_duration linear both;
                }
 
                &::before {
-                  animation: title-r 1s linear both;
+                  animation: title-r $animation_duration linear both;
                }
             }
 
             &::after {
                content: '';
                left: -20%;
-               animation: r-title-l 1s linear both;
+               animation: r-title-l $animation_duration linear both;
             }
 
             &::before {
                content: '';
                right: -20%;
-               animation: r-title-r 1s linear both;
+               animation: r-title-r $animation_duration linear both;
             }
          }
       }
@@ -464,7 +465,7 @@ img {
             height: 30vw;
             position: relative;
             border-radius: 20px;
-            transition: .5s;
+            transition: $animation_duration;
 
 
             img {
@@ -539,7 +540,7 @@ img {
 
                         &::before {
                            content: attr(data-prog);
-                           transition: .5s;
+                           transition: $animation_duration;
                            position: absolute;
                            right: 0;
                            top: 50%;
@@ -618,7 +619,7 @@ img {
                border-radius: 10px;
                background-color: $secondary_color;
                max-width: 100%;
-               transition: .5s;
+               transition: $animation_duration;
                text-align: center;
                flex: 4;
                max-height: 70vh;
@@ -632,7 +633,7 @@ img {
                   padding: 10px;
                   width: 100%;
                   overflow: hidden;
-                  transition: .5s;
+                  transition: $animation_duration;
                   height: 30%;
                   box-shadow: 0 3px 20px 3px lighten($secondary_color, 30%);
                   transform: translateY(-4px);
@@ -656,7 +657,7 @@ img {
                   li {
                      font-size: 1.2rem;
                      font-weight: 500;
-                     transition: .5s;
+                     transition: $animation_duration;
                      margin: 0;
                      padding: 10px;
                      cursor: pointer;
