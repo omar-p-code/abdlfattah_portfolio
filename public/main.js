@@ -1,10 +1,11 @@
 const home = $('.sidebar .nav .home, .bullets .a');
 const about = $('.sidebar .nav .about, .bullets .b');
 const portfolio = $('.sidebar .nav .portfolio, .bullets .d');
-const contact = $('.sidebar .nav .contact');
+const contact = $('.sidebar .nav .contact, .bullets .o');
 const home_section = $('.home_section');
 const about_section = $('.about_section');
 const portfolio_section = $('.portfolio_section');
+const contact_section = $('.contact_section');
 const sidebar_btns = $('.sidebar .nav li');
 const sidebar = $('.sidebar');
 const bullets = $('.bullets li');
@@ -14,13 +15,14 @@ window.addEventListener('scroll', () => {
    const home_scroll = home_section.offset().top ;
    const about_scroll = about_section.offset().top - parseInt(about_section.height());
    const portfolio_scroll = portfolio_section.offset().top - parseInt(portfolio_section.height());
+   const contact_scroll = contact_section.offset().top - parseInt(contact_section.height());
    const current_scroll = document.documentElement.scrollTop;
-   console.log('home_scroll', home_scroll, 'current_scroll', current_scroll);
-   console.log('about_scroll', about_scroll, 'current_scroll', current_scroll);
-   console.log('portfolio_scroll', portfolio_scroll, 'current_scroll', current_scroll);
-   console.log('home', current_scroll == home_scroll);
-   console.log('about', current_scroll == about_scroll);
-   console.log('portfolio', current_scroll == portfolio_scroll);
+   // console.log('home_scroll', home_scroll, 'current_scroll', current_scroll);
+   // console.log('about_scroll', about_scroll, 'current_scroll', current_scroll);
+   // console.log('portfolio_scroll', portfolio_scroll, 'current_scroll', current_scroll);
+   // console.log('home', current_scroll == home_scroll);
+   // console.log('about', current_scroll == about_scroll);
+   // console.log('portfolio', current_scroll == portfolio_scroll);
    if (current_scroll >= home_scroll) {
       sidebar_btns.removeClass('active');
       bullets.removeClass('active');
@@ -37,6 +39,12 @@ window.addEventListener('scroll', () => {
       sidebar_btns.removeClass('active');
       bullets.removeClass('active');
       portfolio.addClass('active');
+   }
+   
+   if (current_scroll >= contact_section) {
+      sidebar_btns.removeClass('active');
+      bullets.removeClass('active');
+      contact.addClass('active');
    }
 })
 
