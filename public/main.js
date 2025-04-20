@@ -9,44 +9,32 @@ const contact_section = $('.contact_section');
 const sidebar_btns = $('.sidebar .nav li');
 const sidebar = $('.sidebar');
 const bullets = $('.bullets li');
+// const skills = $('.about_section .skills .progress-bar');
 const bar = $('.bar');
+const sections = $('.home_section, .about_section, .portfolio_section, .contact_section');
 
-window.addEventListener('scroll', () => {
-   const home_scroll = home_section.offset().top ;
-   const about_scroll = about_section.offset().top - parseInt(about_section.height());
-   const portfolio_scroll = portfolio_section.offset().top - parseInt(portfolio_section.height());
-   const contact_scroll = contact_section.offset().top - parseInt(contact_section.height());
-   const current_scroll = document.documentElement.scrollTop;
-   // console.log('home_scroll', home_scroll, 'current_scroll', current_scroll);
-   // console.log('about_scroll', about_scroll, 'current_scroll', current_scroll);
-   // console.log('portfolio_scroll', portfolio_scroll, 'current_scroll', current_scroll);
-   // console.log('home', current_scroll == home_scroll);
-   // console.log('about', current_scroll == about_scroll);
-   // console.log('portfolio', current_scroll == portfolio_scroll);
-   if (current_scroll >= home_scroll) {
-      sidebar_btns.removeClass('active');
-      bullets.removeClass('active');
-      home.addClass('active');
-   }
-
-   if (current_scroll >= about_scroll) {
-      sidebar_btns.removeClass('active');
-      bullets.removeClass('active');
-      about.addClass('active');
-   }
-
-   if (current_scroll >= portfolio_scroll) {
-      sidebar_btns.removeClass('active');
-      bullets.removeClass('active');
-      portfolio.addClass('active');
-   }
-   
-   if (current_scroll >= contact_scroll) {
-      sidebar_btns.removeClass('active');
-      bullets.removeClass('active');
-      contact.addClass('active');
-   }
-})
+window.addEventListener('scroll', function () {
+   const current_scroll = this.scrollY;
+   console.log(current_scroll)
+   sections.each(function () {
+      const section_top = $(this).offset().top - 100;
+      const section_bottom = $(this).outerHeight() + section_top;
+      console.log(section_top)
+      if (current_scroll >= section_top && current_scroll <= section_bottom) {
+         const id = $(this).attr('class');
+         bullets.removeClass('active');
+         sidebar_btns.removeClass('active');
+         $(`.sidebar .nav li[data-id=${id}]`).addClass('active');
+         $(`.bullets li[data-id=${id}]`).addClass('active');
+         if($(this).has('.about_sections')) {
+            $(this).find('.skills .skill .progress-bar').each(function () {
+               $(this).width($(this).data('prog'))
+               console.log($(this), $(this).data('prog'))
+            })
+         }
+      }
+   });
+});
 
 sidebar_btns.on('click', e => {
    e.stopPropagation();

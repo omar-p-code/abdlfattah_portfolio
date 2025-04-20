@@ -537,6 +537,13 @@ img {
                      .progress-bar {
                         background-color: $pro-color;
                         position: relative;
+                        transition: $animation_duration;
+
+                        &.active {
+                           &::before {
+                              width: 100%;
+                           }
+                        }
 
                         &::before {
                            content: attr(data-prog);
