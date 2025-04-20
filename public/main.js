@@ -26,7 +26,7 @@ window.addEventListener('scroll', function () {
          sidebar_btns.removeClass('active');
          $(`.sidebar .nav li[data-id=${id}]`).addClass('active');
          $(`.bullets li[data-id=${id}]`).addClass('active');
-         if($(this).has('.about_sections')) {
+         if($(this).has('.about_section')) {
             $(this).find('.skills .skill .progress-bar').each(function () {
                $(this).width($(this).data('prog'))
                console.log($(this), $(this).data('prog'))
